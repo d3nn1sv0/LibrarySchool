@@ -16,15 +16,27 @@ namespace Library
             return $"Welcome to {LibraryName} the date today is: {DateTime.Now.ToShortDateString()}";
         }
 
-        public void CreateLoanee(int loaneeNumber, string loaneeName)
+        public void CreateLoanee()
         {
-            LoanerList.Add(new Loanee(loaneeNumber, loaneeName));
+            Console.Clear();
+            int result = 0;
+            do
+            {
+                Console.Write("Insert Loanee ID: ");
+                
+            } while (! int.TryParse(Console.ReadLine(), out result));
+
+            Console.Write("Insert Loanee First name: ");
+            string loaneeName = Console.ReadLine();
+
+            LoanerList.Add(new Loanee(result, loaneeName));
+            Console.Clear();
         }   
 
         public string GetLoanee(int id)
         {
             Loanee l = LoanerList.Find(item => item.LoaneeNumber == id);
-            return $"Loanee number: {l.LoaneeNumber} Name: {l.LoaneeName} Lended at: {LibraryName} ";
+            return $"Loanee number: {l.LoaneeNumber} | Name: {l.LoaneeName} | Lended at: {LibraryName}\n ";
         }
 
         public void GetAllLoanees()
