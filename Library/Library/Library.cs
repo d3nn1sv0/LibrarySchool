@@ -8,7 +8,8 @@ namespace Library
     {
 
         public string LibraryName { get; }
-        public Loanee Loaner { get; private set; }
+        //public Loanee Loaner { get; private set; }
+        public List<Loanee> LoanerList { get; }
 
         public string GetLibrary()
         {
@@ -17,17 +18,28 @@ namespace Library
 
         public void CreateLoanee(int loaneeNumber, string loaneeName)
         {
-            Loaner = new Loanee(loaneeNumber, loaneeName);
+            LoanerList.Add(new Loanee(loaneeNumber, loaneeName));
         }   
 
-        public string GetLoanee()
+        public string GetLoanee(int id)
         {
-            return $"Loanee number: {Loaner.LoaneeNumber} Name: {Loaner.LoaneeName} Lended at: {LibraryName} ";
+            Loanee l = LoanerList.Find(item => item.LoaneeNumber == id);
+            return $"Loanee number: {l.LoaneeNumber} Name: {l.LoaneeName} Lended at: {LibraryName} ";
+        }
+
+        public void GetAllLoanees()
+        {
+            foreach (Loanee loanee in LoanerList)
+            {
+                Console.WriteLine(GetLoanee(loanee.LoaneeNumber));
+            }
         }
 
         public Library(string name)
         {
             LibraryName = name;
+
+            LoanerList = new List<Loanee>();
         }
     }
 }
