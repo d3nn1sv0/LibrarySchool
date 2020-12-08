@@ -8,10 +8,12 @@ namespace Library
         {
             Library lib = new Library("fml lib");
             lib.CreateLoanee(1, "Johnny");
+            lib.CreateLoanee(2, "Mads");
+            lib.CreateLoanee(3, "Thorsten");
 
             Console.WriteLine(lib.GetLibrary());
 
-            Console.WriteLine(lib.GetLoanee());
+            lib.GetAllLoanees();
         }
     }
 }
