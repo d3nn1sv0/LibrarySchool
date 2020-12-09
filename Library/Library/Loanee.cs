@@ -4,15 +4,15 @@ using System.Text;
 
 namespace Library
 {
-    public class Loanee
+    public class Loanee : Person
     {
         public readonly int LoaneeNumber;
-        public readonly string LoaneeName;
 
-        public Loanee(int number, string name)
+        public Loanee(int number, string name, string email)
         {
             LoaneeNumber = number;
             LoaneeName = name;
+            LoaneeEmail = email;
         }
 
     }

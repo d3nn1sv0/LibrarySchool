@@ -29,14 +29,17 @@ namespace Library
             Console.Write("Insert Loanee First name: ");
             string loaneeName = Console.ReadLine();
 
-            LoanerList.Add(new Loanee(result, loaneeName));
+            Console.Write("Insert Loanee email address: ");
+            string loaneeEmail = Console.ReadLine();
+
+            LoanerList.Add(new Loanee(result, loaneeName, loaneeEmail));
             Console.Clear();
         }   
 
         public string GetLoanee(int id)
         {
             Loanee l = LoanerList.Find(item => item.LoaneeNumber == id);
-            return $"Loanee number: {l.LoaneeNumber} | Name: {l.LoaneeName} | Lended at: {LibraryName}\n ";
+            return $"Loanee number: {l.LoaneeNumber} | Name: {l.LoaneeName} | Email: {l.LoaneeEmail} | Lended at: {LibraryName}\n ";
         }
 
         public void GetAllLoanees()
