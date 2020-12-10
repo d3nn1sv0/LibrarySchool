@@ -8,7 +8,5 @@ namespace Library
     {
         public string LoaneeName { get; set; }
         public string LoaneeEmail { get; set; }
-
-
     }
 }

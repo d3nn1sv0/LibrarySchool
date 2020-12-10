@@ -19,6 +19,11 @@ namespace Library
 
         }
 
+
+        ///<summary>
+        ///Method to create a simple menu to navigate the program
+        ///</summary>
+        ///<return>return the user input</return>
         static string PrintMenu()
         {
 
